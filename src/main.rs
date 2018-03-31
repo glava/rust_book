@@ -25,17 +25,11 @@ fn main() {
 
         println!("You guessed {}", guess);
 
-        let is_correct = is_guessed(guess, secret_number);
+        let is_guessed = is_guessed(guess, secret_number);
 
-        println!(" {} -> {}", is_correct.0, is_correct.1);
-
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => {
-                println!("You win!");
-                break;
-            }
+        println!("{}", is_guessed.1);
+        if is_guessed.0 {
+            break
         }
     }
 }
