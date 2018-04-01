@@ -7,7 +7,7 @@ use std::result::Result::Err;
 
 fn main() {
     println!("Guess the number!");
-
+    playing_with_memory();
     let secret_number = random_number();
 
     loop {
@@ -44,4 +44,19 @@ fn is_guessed(user_number: u32, generated_number: u32) -> (bool, String) {
         Ordering::Greater => (false, "Too big!".to_string()),
         Ordering::Equal => (true, "You win".to_string())
     }
+}
+
+fn go_though_array() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a.iter() {
+        println!("the value is: {}", element);
+    }
+}
+
+fn playing_with_memory() {
+    let s1 = String::from("hello");
+    let s2 = s1.clone();
+    
+    println!("s1 {}, s2 {}", s1, s1)
 }
