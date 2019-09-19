@@ -1,4 +1,5 @@
-
+use std::fs;
+use std::env;
 // Constants can be declared in any scope, 
 //including the global scope, which makes them useful for values that many parts of code need to know about.
 const GOGA_JE_CAR:u32 = 1;
@@ -12,4 +13,11 @@ fn main() {
     let guess: u32 = "42".parse().expect("not a number baby!");
     let heart_eyed_cat = '😻';
     println!("Hello, world! {}", heart_eyed_cat);
+
+    let contents = fs::read_to_string("variables.iml").expect("Something went wrong reading the file");
+
+
+    println!("With text:\n{}", contents);
+
+
 }
