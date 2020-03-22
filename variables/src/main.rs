@@ -1,5 +1,7 @@
 use std::fs;
 use std::env;
+use std::thread;
+use std::time::Duration;
 // Constants can be declared in any scope, 
 //including the global scope, which makes them useful for values that many parts of code need to know about.
 const GOGA_JE_CAR:u32 = 1;
@@ -18,6 +20,20 @@ fn main() {
 
 
     println!("With text:\n{}", contents);
+
+    thread::spawn(|| {
+        for i in 1..10 {
+            println!("hi number {}", i);
+            thread::sleep(Duration::from_millis(1000))
+        }
+    });
+
+    thread::spawn(|| {
+        for i in 1..10 {
+            println!("hi number {}", i + 100);
+            thread::sleep(Duration::from_millis(1000))
+        }
+    });
 
 
 }
